@@ -81,6 +81,12 @@ function renderTask(task: Task): void {
     taskCheckbox.type = "checkbox";
     taskCheckbox.checked = task.isCompleted;
 
+    // Toggle checkbox
+    taskCheckbox.addEventListener("change", () => {
+        task.isCompleted = !task.isCompleted;
+        updateStorage();
+    });
+
     // Adding checkbox to the task list item
     taskElement.appendChild(taskCheckbox);
 
