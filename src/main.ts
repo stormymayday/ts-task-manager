@@ -16,3 +16,9 @@ const taskForm = document.querySelector<HTMLFormElement>(".form");
 const formInput = document.querySelector<HTMLInputElement>(".form-input");
 const taskList = document.querySelector<HTMLUListElement>(".list");
 console.log(taskList);
+
+// Type Definition:
+type Task = {
+    description: string;
+    isCompleted: boolean;
+};
