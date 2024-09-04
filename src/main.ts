@@ -22,8 +22,8 @@ type Task = {
     isCompleted: boolean;
 };
 
-// Tasks Array:
-const tasks: Task[] = [];
+// Tasks Array - loading from local storage if it is there, otherwise returns an empty array
+const tasks: Task[] = loadTasks();
 
 // Form on 'submit' event listener
 taskForm?.addEventListener("submit", (event) => {
@@ -76,4 +76,10 @@ function renderTask(task: Task): void {
 
 function updateStorage(): void {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function loadTasks(): Task[] {
+    const storedTasks = localStorage.getItem("tasks");
+
+    return storedTasks ? JSON.parse(storedTasks) : [];
 }
