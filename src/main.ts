@@ -22,3 +22,6 @@ type Task = {
     description: string;
     isCompleted: boolean;
 };
+
+// Array to hold Tasks
+const tasks: Task[] = [];
