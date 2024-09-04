@@ -49,6 +49,7 @@ taskForm?.addEventListener("submit", (event) => {
         renderTask(task);
 
         // update local storage
+        updateStorage();
 
         // Resetting the formInput back to empty string
         formInput.value = "";
@@ -71,4 +72,8 @@ function renderTask(task: Task): void {
 
     // Adding task to the DOM (task list)
     taskList?.appendChild(taskElement);
+}
+
+function updateStorage(): void {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
