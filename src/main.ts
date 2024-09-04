@@ -25,6 +25,12 @@ type Task = {
 // Tasks Array - loading from local storage if it is there, otherwise returns an empty array
 const tasks: Task[] = loadTasks();
 
+// Rendering tasks
+tasks.forEach((task) => {
+    renderTask(task);
+});
+// tasks.forEach(renderTask);
+
 // Form on 'submit' event listener
 taskForm?.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -69,6 +75,14 @@ function renderTask(task: Task): void {
 
     // Adding description as text content:
     taskElement.textContent = task.description;
+
+    // Creating a checkbox
+    const taskCheckbox = document.createElement("input");
+    taskCheckbox.type = "checkbox";
+    taskCheckbox.checked = task.isCompleted;
+
+    // Adding checkbox to the task list item
+    taskElement.appendChild(taskCheckbox);
 
     // Adding task to the DOM (task list)
     taskList?.appendChild(taskElement);
