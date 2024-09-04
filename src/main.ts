@@ -15,7 +15,6 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 const taskForm = document.querySelector<HTMLFormElement>(".form");
 const formInput = document.querySelector<HTMLInputElement>(".form-input");
 const taskList = document.querySelector<HTMLUListElement>(".list");
-console.log(taskList);
 
 // Type Definition:
 type Task = {
@@ -35,7 +34,20 @@ taskForm?.addEventListener("submit", (event) => {
 
     // Checking if the 'taskDescription' exists
     if (taskDescription) {
-        console.log(taskDescription);
+        // console.log(taskDescription);
+
+        // constructing a task
+        const task: Task = {
+            description: taskDescription,
+            isCompleted: false,
+        };
+
+        // add task to the list
+        addTask(task);
+
+        // render tasks
+
+        // update local storage
 
         // Resetting the formInput back to empty string
         formInput.value = "";
@@ -44,3 +56,7 @@ taskForm?.addEventListener("submit", (event) => {
         alert("Please enter a task description.");
     }
 });
+
+function addTask(task: Task): void {
+    tasks.push(task);
+}
