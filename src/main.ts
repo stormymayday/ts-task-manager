@@ -23,5 +23,24 @@ type Task = {
     isCompleted: boolean;
 };
 
-// Array to hold Tasks
+// Tasks Array:
 const tasks: Task[] = [];
+
+// Form on 'submit' event listener
+taskForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Grabbing task description from the formInput value
+    const taskDescription = formInput?.value;
+
+    // Checking if the 'taskDescription' exists
+    if (taskDescription) {
+        console.log(taskDescription);
+
+        // Resetting the formInput back to empty string
+        formInput.value = "";
+        return;
+    } else {
+        alert("Please enter a task description.");
+    }
+});
